@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @food %>
+  <%= food.name %>
+  <%= food.measurement_units %>
+  <%= food.price %>
+  <%= food.quantity %>
+  <%= food.public %>
 
 <div>
   <%= link_to "Edit this food", edit_food_path(@food) %> |

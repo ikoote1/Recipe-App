@@ -6,8 +6,11 @@
   <% @foods.each do |food| %>
     <%= render food %>
     <%= food.name %>
+    <%= food.measurement_units %>
+    <%= food.price %>
+
     <p>
-      <%= link_to "Show this food", food %>
+    <%= button_to "Delete", @food, method: :delete %> | <%= link_to "Show", food %>
     </p>
   <% end %>
 </div>
