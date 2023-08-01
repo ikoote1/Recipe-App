@@ -17,15 +17,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # user: postgres
-  # password: preim
+  user: database
+  password: database
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 development:
   <<: *default
   database: Recipe-App_development
-  # user: postgres
+  user: database
+  password: database
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -76,13 +77,5 @@ test:
 production:
   <<: *default
   database: Recipe-App_production
-  username: postgres
-  password: preim
-
-
-
-
-
-
-
-
+  username: Recipe-App
+  password: <%= ENV["Recipe-App_DATABASE_PASSWORD"] %>
