@@ -1,0 +1,32 @@
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Preparation Time:</strong>
+  <%= @recipe.preparation_time %>
+</p>
+
+<p>
+  <strong>Cooking Time:</strong>
+  <%= @recipe.cooking_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @recipe.public ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <strong>User ID:</strong>
+  <%= @recipe.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
