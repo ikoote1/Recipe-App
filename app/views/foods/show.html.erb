@@ -8,7 +8,5 @@
 
 <div>
   <%= link_to "Edit", edit_food_path(@food) %> |
-  <%= link_to "Back", foods_path %>
-
-  <%= button_to "Delete", @food, method: :delete %>
+  <%= link_to "Back", foods_path %> | <%= button_to "Delete", @food, method: :delete %>
 </div>

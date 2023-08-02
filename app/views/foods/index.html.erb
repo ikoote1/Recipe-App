@@ -3,16 +3,28 @@
 <h1>Foods</h1>
 
 <div id="foods">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
   <% @foods.each do |food| %>
     <%= render food %>
-    <%= food.name %>
-    <%= food.measurement_units %>
-    <%= food.price %>
-
-    <p>
-    <%= button_to "Delete", food, method: :delete %> | <%= link_to "Show", food %>
-    </p>
+    <tr>
+        <td><%= food.name %></td>
+        <td><%= food.measurement_units %> minutes</td>
+        <td><%= food.price %> minutes</td>
+        <td><%= link_to "Delete", food, method: :delete %>
+      </tr>
   <% end %>
+  </tbody>
+  </table>
 </div>
 
 <%= link_to "New food", new_food_path %>
