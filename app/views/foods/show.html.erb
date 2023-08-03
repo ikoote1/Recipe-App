@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<!-- app/views/foods/show.html.erb -->
 
-<p><strong>Name:</strong> <%= @food.name %></p>
-<p><strong>Measurement Units:</strong> <%= @food.measurement_units %></p>
-<p><strong>Price:</strong> <%= @food.price %></p>
-<p><strong>Quantity:</strong> <%= @food.quantity %></p>
-<p><strong>Public:</strong> <%= @food.public %></p>
+<p class="notice"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit", edit_food_path(@food) %> |
-  <%= link_to "Back", foods_path %>
+<div class="food-details">
+  <p><strong>Name:</strong> <%= @food.name %></p>
+  <p><strong>Measurement Units:</strong> <%= @food.measurement_units %></p>
+  <p><strong>Price:</strong> <%= @food.price %></p>
+  <p><strong>Quantity:</strong> <%= @food.quantity %></p>
+  <p><strong>Public:</strong> <%= @food.public %></p>
+</div>
 
-  <%= button_to "Delete", @food, method: :delete %>
+<div class="actions">
+  <%= link_to "Edit", edit_food_path(@food), class: "edit-link" %>
+  <%= link_to "Back", foods_path, class: "back-link" %>
+  <%= button_to "Delete", @food, method: :delete, class: "delete-button" %>
 </div>

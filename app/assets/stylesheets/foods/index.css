@@ -1,0 +1,42 @@
+/* app/assets/stylesheets/foods/index.css */
+
+/* Style for the "Add Food" link */
+.add-food-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  /* Style for the table */
+  #foods {
+    margin-top: 20px;
+  }
+  
+  #foods table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  #foods th,
+  #foods td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  #foods th {
+    background-color: #f0f0f0;
+    text-align: left;
+  }
+  
+  /* Style for the "Delete" link inside the table cells */
+  #foods a.delete-link {
+    color: #ff4444;
+    text-decoration: none;
+  }
+  

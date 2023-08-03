@@ -1,18 +1,31 @@
+<!-- app/views/foods/index.html.erb -->
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Foods</h1>
+<%= link_to "Add Food", new_food_path, class: "add-food-link" %>
 
 <div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <%= food.name %>
-    <%= food.measurement_units %>
-    <%= food.price %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-    <p>
-    <%= button_to "Delete", food, method: :delete %> | <%= link_to "Show", food %>
-    </p>
-  <% end %>
+    <tbody>
+      <% @foods.each do |food| %>
+        <%= render food %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_units %></td>
+          <td>$<%= food.price %></td>
+          <td><%= link_to "Delete", food, method: :delete, class: "delete-link" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New food", new_food_path %>

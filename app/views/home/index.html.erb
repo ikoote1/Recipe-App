@@ -4,14 +4,14 @@
   <title>Welcome to Recipe</title>
 </head>
 <body>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  
   <% if user_signed_in? %>
+    <%= link_to "Add Food", foods_path %>
     <%= form_tag(destroy_user_session_path, method: :delete) do %>
       <%= submit_tag "Sign Out" %>
     <% end %>
   <% else %>
     <%= link_to "Login", new_user_session_path %>
   <% end %>
+  <%= link_to "Sign Up", new_user_registration_path %>
 </body>
 </html>

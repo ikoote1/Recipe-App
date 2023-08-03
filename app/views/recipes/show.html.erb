@@ -23,10 +23,5 @@
   <%= @recipe.public ? 'Yes' : 'No' %>
 </p>
 
-<p>
-  <strong>User ID:</strong>
-  <%= @recipe.user_id %>
-</p>
-
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
