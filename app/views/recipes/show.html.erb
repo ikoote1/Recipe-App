@@ -1,27 +1,23 @@
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<div id="foods">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Preparation Time:</strong>
-  <%= @recipe.preparation_time %>
-</p>
-
-<p>
-  <strong>Cooking Time:</strong>
-  <%= @recipe.cooking_time %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-
-<p>
-  <strong>Public:</strong>
-  <%= @recipe.public ? 'Yes' : 'No' %>
-</p>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.recipe_foods.find_by(recipe: @recipe).food_quantity %></td>
+          <td>$<%= food.price * food.recipe_foods.find_by(recipe: @recipe).food_quantity %></td>
+          <td><%= link_to "Delete", food, method: :delete, class: "delete-link" %> |  <%= link_to "Edit", edit_food_path(@food), class: "edit-link" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
