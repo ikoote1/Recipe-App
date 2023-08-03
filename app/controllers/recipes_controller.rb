@@ -6,7 +6,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @foods = @recipe.foods
+    @foods = @recipe.foods.includes(:recipe_foods)
+    @foods = Food.where(user_id: current_user.id)
   end
 
   def new

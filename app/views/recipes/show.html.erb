@@ -1,9 +1,38 @@
+<h2>
+<%= @recipe.name %>
+</h2>
+<div class="recip">
+<div class="prepare">
+<p>
+<strong>Preparation Time:</strong>
+<%= @recipe.preparation_time %> minutes
+</p>
+
+<p>
+<strong>Cooking Time:</strong>
+<%= @recipe.cooking_time %> minutes
+</p>
+</div>
+<div class= "actions">
+<p>
+<strong>Public:</strong> <%= @recipe.public ? 'Yes' : 'No' %>
+</p>
+  
+</div>
+</div>
+
+<p class="treess">
+<%= link_to 'Edit', edit_recipe_path(@recipe) %>
+<%= link_to 'Back', recipes_path %>
+</p>
+
 <div id="foods">
   <table>
     <thead>
       <tr>
         <th>Name</th>
         <th>Quantity</th>
+        <th>Quantity2</th>
         <th>Value</th>
         <th>Actions</th>
       </tr>
@@ -13,9 +42,11 @@
       <% @foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= food.recipe_foods.find_by(recipe: @recipe).food_quantity %></td>
-          <td>$<%= food.price * food.recipe_foods.find_by(recipe: @recipe).food_quantity %></td>
-          <td><%= link_to "Delete", food, method: :delete, class: "delete-link" %> |  <%= link_to "Edit", edit_food_path(@food), class: "edit-link" %></td>
+          <td><%= food.quantity %></td>
+          <% food_quantity = food.recipe_foods.find { |rf| rf.recipe_id == @recipe.id }&.food_quantity || 0 %>
+          <td><%= food_quantity %></td>
+          <td>$<%= food.price * food.quantity %></td>
+          <td><%= link_to "Delete", food, method: :delete, class: "delete-link" %></td>
         </tr>
       <% end %>
     </tbody>
