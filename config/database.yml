@@ -1,12 +1,14 @@
 default: &default
   adapter: postgresql
   encoding: unicode
- 
+  username: earn
+  password: earn
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
 development:
   <<: *default
   database: Recipe-App_development
- 
+
 test:
   <<: *default
   database: Recipe-App_test
@@ -14,5 +16,3 @@ test:
 production:
   <<: *default
   database: Recipe-App_production
-  username: postgres
-  password: preim
