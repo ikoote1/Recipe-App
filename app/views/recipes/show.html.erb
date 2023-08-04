@@ -1,3 +1,6 @@
+<p>
+<%= link_to "Home", root_path, class: "back-to-home-link" %>
+</p>
 <h2 class="gret">
 <%= @recipe.name %>
 </h2>
@@ -7,7 +10,18 @@
 <strong>Preparation Time:</strong>
 <%= @recipe.preparation_time %> minutes
 </p>
-
+<p>
+<% if !current_user.nil? && current_user.id == @recipe.user_id %>
+<%= form_for @recipe do |f| %>
+  <div class="custom-control custom-switch">
+    <%= f.check_box :public, id: "visibility-toggle", class: "custom-control-input" %>
+    <%= f.label :public, class: "custom-control-label", for: "visibility-toggle" %>
+  </div>
+  
+  <%= f.submit "Update Visibility", class: "btn btn-primary" %>
+  <%end%>
+<% end %>
+</p>
 <p>
 <strong>Cooking Time:</strong>
 <%= @recipe.cooking_time %> minutes
@@ -20,11 +34,15 @@
   
 </div>
 </div>
-
-<p class="treess">
-<%= link_to 'Edit', edit_recipe_path(@recipe) %>
+<div class=treess>
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
-</p>
+</div>
+
+<% if user_signed_in? %>
+<%= button_to 'Generate Shopping List', generate_shopping_list_path(recipe_id: @recipe.id), method: :post, class: 'recipesButton' %>
+<% end %>
+
 
 <div id="foods">
   <table>
@@ -32,7 +50,6 @@
       <tr>
         <th>Name</th>
         <th>Quantity</th>
-        <th>Quantity2</th>
         <th>Value</th>
         <th>Actions</th>
       </tr>
@@ -42,11 +59,16 @@
       <% @foods.each do |food| %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= food.quantity %></td>
           <% food_quantity = food.recipe_foods.find { |rf| rf.recipe_id == @recipe.id }&.food_quantity || 0 %>
           <td><%= food_quantity %></td>
-          <td>$<%= food.price * food.quantity %></td>
-          <td><%= link_to "Delete", food, method: :delete, class: "delete-link" %></td>
+          <td>$<%= food.price * food_quantity %></td>
+          <td><div>
+          <% if @recipe_food %>
+          <%= link_to "Edit this recipe food", edit_recipe_food_path(@recipe_food) %> |
+          <%= link_to "Back to recipe foods", recipe_foods_path %>
+          <%= button_to "Destroy", @recipe_food, method: :delete %>
+        <% end %>
+        </div></td>
         </tr>
       <% end %>
     </tbody>

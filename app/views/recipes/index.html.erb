@@ -1,5 +1,12 @@
 <!-- index.html.erb -->
+<div>
+<%= render '/shared/navbar'%>
+</div>
+
   <div class="header">
+  <p>
+<%= link_to "Home", root_path, class: "back-to-home-link" %>
+</p>
     <h1>Recipes</h1>
     <div class="act">
       <%= link_to 'Add Recipe', new_recipe_path %>

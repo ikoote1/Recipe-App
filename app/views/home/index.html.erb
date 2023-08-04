@@ -4,8 +4,13 @@
   <title>Welcome to Recipe</title>
 </head>
 <body>
+<div>
+<%= render '/shared/navbar'%>
+</div>
+
   <% if user_signed_in? %>
-    <%= link_to "Add Food", foods_path %>
+    <%= link_to "Recipe", recipes_path %>
+    <%= link_to "Food", foods_path %>
     <%= form_tag(destroy_user_session_path, method: :delete) do %>
       <%= submit_tag "Sign Out" %>
     <% end %>
