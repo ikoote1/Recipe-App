@@ -1,33 +1,21 @@
-<h1>Recipes</h1>
+<div class="header">
+  <p>
+<%= link_to "Home", root_path, class: "back-to-home-link" %>
+</p>
+    <h1>Recipes</h1>
+    <div class="act">
+      <%= link_to 'Add Recipe', new_recipe_path %>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Preparation Time</th>
-      <th>Cooking Time</th>
-      <th>Description</th>
-      <th>Public</th>
-      <th>User ID</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.preparation_time %> minutes</td>
-        <td><%= recipe.cooking_time %> minutes</td>
-        <td><%= recipe.description %></td>
-        <td><%= recipe.public ? 'Yes' : 'No' %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to "Delete", recipe, method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= link_to 'New Recipe', new_recipe_path %>
+  <% @recipes.each do |recipe| %>
+    <div class="recipe">
+      <div class="action">
+      <h3><%= recipe.name %></h3>
+        <%= link_to 'REMOVE', recipe, method: :delete, class: 'remove-btn' %>
+      </div>
+      <div class="description">
+        <p><%= recipe.description %></p>
+      </div>
+    </div>
+  <% end %>
