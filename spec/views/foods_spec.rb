@@ -25,7 +25,7 @@ RSpec.describe 'Food integration tests', type: :feature do
     end
 
     it 'displays a form to create a new food' do
-        expect(page).to have_content('Food')
+      expect(page).to have_content('Food')
     end
 
     it 'displays each food details' do

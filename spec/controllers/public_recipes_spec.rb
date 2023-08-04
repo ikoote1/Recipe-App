@@ -6,7 +6,8 @@ RSpec.describe PublicRecipesController, type: :controller do
       public_recipe = Recipe.create(name: 'Public Recipe', public: true)
       user = User.create(name: 'Test user', email: 'test444@gmail.com',
                          password: '123456', password_confirmation: '123456')
-                         food = Food.create(name: 'Test food', price: 12.2, quantity: 4, measurement_units: 'pce', user: user)
+      food = Food.create(name: 'Test food', price: 12.2, quantity: 4, measurement_units: 'pce',
+                         user:)
 
       public_recipe.foods << food
 
