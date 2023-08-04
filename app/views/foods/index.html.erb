@@ -20,7 +20,7 @@
         <%= render food %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= food.measurement_units %></td>
+          <td><%= food.measurement_unit %></td>
           <td>$<%= food.price %></td>
           <td><%= link_to "Delete", food, method: :delete, class: "delete-link" %></td>
         </tr>
