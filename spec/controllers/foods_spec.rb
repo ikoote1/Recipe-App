@@ -63,6 +63,6 @@ RSpec.describe FoodsController, type: :controller do
         sign_in @user
         @food = Food.create(name: 'Test food', measurement_unit: 'pce', price: 12.2, quantity: 4, user: @user)
       end
+    end
   end
-end
 end
