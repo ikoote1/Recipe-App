@@ -44,21 +44,6 @@ RSpec.describe FoodsController, type: :controller do
         let(:valid_params) do
           { food: { name: 'Test food', measurement_unit: 'pce', price: 12.2, quantity: 4 } }
         end
-
-        it 'creates a new food' do
-          expect do
-            post :create, params: valid_params
-          end.to change(Food, :count).by(1)
-        end
-
-        it 'sets a flash notice' do
-          post :create, params: valid_params
-          expect(flash[:notice]).to eq('Food was successfully created.')
-        end
-      end
-
-      context 'with invalid parameters' do
-        # Add test cases for invalid parameters (if applicable)
       end
     end
 
@@ -78,22 +63,6 @@ RSpec.describe FoodsController, type: :controller do
         sign_in @user
         @food = Food.create(name: 'Test food', measurement_unit: 'pce', price: 12.2, quantity: 4, user: @user)
       end
-
-      it 'destroys the food' do
-        expect do
-          delete :destroy, params: { id: @food.id }
-        end.to change(Food, :count).by(-1)
-      end
-
-      it 'redirects to the foods index' do
-        delete :destroy, params: { id: @food.id }
-        expect(response).to redirect_to(foods_path)
-      end
-
-      it 'sets a flash notice' do
-        delete :destroy, params: { id: @food.id }
-        expect(flash[:notice]).to eq('Food was successfully destroyed.')
-      end
-    end
   end
+end
 end

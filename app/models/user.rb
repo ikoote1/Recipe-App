@@ -3,8 +3,9 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :cart_items
 
-  validates :email, presence: true, uniqueness: true
+  attr_accessor :confirmation_token
 
+  validates :email, presence: true, uniqueness: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

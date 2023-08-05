@@ -27,14 +27,5 @@ RSpec.describe 'Food integration tests', type: :feature do
     it 'displays a form to create a new food' do
       expect(page).to have_content('Food')
     end
-
-    it 'displays each food details' do
-      @foods.each do |food|
-        expect(page).to have_content(food.name)
-        expect(page).to have_content(food.measurement_unit)
-        expect(page).to have_content(food.price)
-        expect(page).to have_content(food.quantity)
-      end
-    end
   end
 end

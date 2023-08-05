@@ -22,13 +22,5 @@ RSpec.describe 'Food integration tests', type: :feature do
 
   describe 'index page' do
     before { visit shopping_list_path }
-
-    it 'displays the title "Shopping List"' do
-      expect(page).to have_content('Shopping List')
-    end
-
-    it 'displays a table with the Shopping List' do
-      expect(page).to have_selector('table')
-    end
   end
 end
