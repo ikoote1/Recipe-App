@@ -158,3 +158,9 @@ If you like this project you can give it a star!
 I would like to thanks Microverse for this learning opportunity.
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
