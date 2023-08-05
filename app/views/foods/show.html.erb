@@ -1,6 +1,7 @@
 <!-- app/views/foods/show.html.erb -->
 
 <p class="notice"><%= notice %></p>
+<div class="foodss">
 
 <div class="food-details">
   <p><strong>Name:</strong> <%= @food.name %></p>
@@ -14,4 +15,5 @@
   <%= link_to "Edit", edit_food_path(@food), class: "edit-link" %>
   <%= link_to "Back", foods_path, class: "back-link" %>
   <%= button_to "Delete", @food, method: :delete, class: "delete-button" %>
+</div>
 </div>

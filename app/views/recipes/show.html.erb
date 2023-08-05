@@ -1,8 +1,10 @@
+<div class= "recipe-2">
+<div>
 <p>
   <strong>Name:</strong>
   <%= @recipe.name %>
 </p>
-
+<div class="recip">
 <p>
   <strong>Preparation Time:</strong>
   <%= @recipe.preparation_time %>
@@ -20,30 +22,24 @@
   <%end%>
 <% end %>
 </p>
+</div>
 
 <p>
   <strong>Cooking Time:</strong>
   <%= @recipe.cooking_time %>
 </p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
-
-<p>
-  <strong>Public:</strong>
-  <%= @recipe.public ? 'Yes' : 'No' %>
-</p>
-
+<div class="gret">
+<div class="treess">
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
+</div>
 
 <% if user_signed_in? %>
 <%= button_to 'Generate Shopping List', generate_shopping_list_path(recipe_id: @recipe.id), method: :post, class: 'recipesButton' %>
 <% end %>
-
-<div id="foods">
+</div>
+</div>
+<div>
   <table>
     <thead>
       <tr>
@@ -71,4 +67,5 @@
       <% end %>
     </tbody>
   </table>
-</div>
+  </div>
+  </div>
