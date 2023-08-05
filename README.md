@@ -156,5 +156,11 @@ If you like this project you can give it a star!
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 I would like to thanks Microverse for this learning opportunity.
+<p align="right">(<a href="#readme-top"></a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right"><a href="#readme-top">Back to top</a></p>
+
