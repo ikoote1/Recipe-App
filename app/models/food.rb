@@ -3,7 +3,8 @@ class Food < ApplicationRecord
   has_many :recipes, through: :recipe_foods
   has_many :recipe_foods
 
-  # def price=(value)
-  #   super(value&.delete('$'))
-  # end
+  validates :name, presence: true
+  validates :measurement_units, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
 end

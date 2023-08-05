@@ -8,8 +8,8 @@
   <% @recipes.each do |recipe| %>
     <div class="recipe">
       <div class="action">
-      <h3><%= recipe.name %></h3>
-        <%= link_to 'REMOVE', recipe, method: :delete, class: 'remove-btn' %>
+      <h3><td><%= link_to "#{recipe.name}", recipe, method: :delete, class: "remove-btn" %></h3>
+        <%= button_to 'REMOVE', recipe, method: :delete, class: 'remove-btn' %>
       </div>
       <div class="description">
         <p><%= recipe.description %></p>

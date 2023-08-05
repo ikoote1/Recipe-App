@@ -22,9 +22,9 @@
   transition: background-color 0.2s;
 }
 
-.action a {
+.action button {
   color: #fff;
-  width: 30%;
+  width: 60%;
   background-color: #4285f4;
   border: none;
   padding: 10px 20px;
@@ -62,6 +62,6 @@
   width: 80%;
 }
 
-.action a:hover {
+.action button:hover {
   background-color: #3367d6;
 }

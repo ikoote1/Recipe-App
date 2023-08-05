@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :recipe_foods
-  resources :foods
-  resources :recipes
+  resources :foods, except: [:update]
+  resources :recipes, except: [:update]
   resources :shopping_list, only: [:index]
   devise_for :users
   root to: "home#index"

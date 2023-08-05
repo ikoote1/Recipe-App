@@ -36,3 +36,8 @@ ul {
   flex-direction: row;
   gap: 15px;
 }
+
+.nav-items {
+  list-style: none;
+}
+
